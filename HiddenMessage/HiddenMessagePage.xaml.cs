@@ -12,7 +12,6 @@ namespace HiddenMessage
         public HiddenMessagePage()
         {
             InitializeComponent();
-
         }   
     }
 }

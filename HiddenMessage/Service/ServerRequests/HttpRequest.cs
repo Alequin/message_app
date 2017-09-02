@@ -36,7 +36,8 @@ namespace HiddenMessage.Service.ServerRequests
 			client.Dispose();
 		}
 
-        private static HttpClient BuildClient(){
+        private static HttpClient BuildClient()
+        {
 			HttpClient client = new HttpClient();
 
 			var header = client.DefaultRequestHeaders;
@@ -44,7 +45,8 @@ namespace HiddenMessage.Service.ServerRequests
             return client;
         }
 
-        private async static void HandleResponseContent(HttpResponseMessage response, Func<String, String> onResult){
+        private async static void HandleResponseContent(HttpResponseMessage response, Func<String, String> onResult)
+        {
 			HttpContent rawContent = response.Content;
 			String content = await rawContent.ReadAsStringAsync();
 

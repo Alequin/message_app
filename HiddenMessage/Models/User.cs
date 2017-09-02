@@ -63,15 +63,3 @@ namespace HiddenMessage.Models
 }
 
 
-
-//function User(name, avatar, deviceSystem, deviceToken, onlineStatus, isVisible)
-//{
-//	this.id = -1;
-//	this.name = name;
-//	this.avatar = avatar;
-//	this.deviceSystem = deviceSystem
-//  this.deviceToken = deviceToken
-//  this.onlineStatus = onlineStatus
-//  this.isVisible = isVisible
-//}
-
