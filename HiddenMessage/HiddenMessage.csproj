@@ -36,6 +36,12 @@
     <EmbeddedResource Include="pages\UserTabs\UsersPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="pages\UserTabs\ConversationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\UserTabs\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -53,6 +59,12 @@
     </Compile>
     <Compile Include="pages\UserTabs\UsersPage.xaml.cs">
       <DependentUpon>UsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\UserTabs\ConversationPage.xaml.cs">
+      <DependentUpon>ConversationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\UserTabs\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
