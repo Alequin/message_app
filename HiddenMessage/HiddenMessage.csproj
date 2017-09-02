@@ -30,6 +30,12 @@
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
     <EmbeddedResource Include="HiddenMessagePage.xaml" />
+    <EmbeddedResource Include="pages\UserTabs\MainTabbedPages.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pages\UserTabs\UsersPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -42,6 +48,12 @@
     <Compile Include="Service\ServerRequests\HttpRequest.cs" />
     <Compile Include="Service\ServerRequests\ServerVariables.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="pages\UserTabs\MainTabbedPages.xaml.cs">
+      <DependentUpon>MainTabbedPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\UserTabs\UsersPage.xaml.cs">
+      <DependentUpon>UsersPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -64,6 +76,8 @@
     <Folder Include="Service\" />
     <Folder Include="Service\ServerRequests\" />
     <Folder Include="Models\" />
+    <Folder Include="pages\" />
+    <Folder Include="pages\UserTabs\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
