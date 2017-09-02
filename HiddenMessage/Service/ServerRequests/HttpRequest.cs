@@ -16,11 +16,9 @@ namespace HiddenMessage.Service.ServerRequests
 
 			HttpResponseMessage response = await client.GetAsync(url);
 			HttpContent rawContent = response.Content;
-            String content = await rawContent.ReadAsStringAsync();
 
-            if(onResult != null) onResult(content);
+            HttpRequest.HandleResponseContent(response, onResult);
 
-            rawContent.Dispose();
             response.Dispose();
             client.Dispose();
 		}
@@ -31,12 +29,9 @@ namespace HiddenMessage.Service.ServerRequests
 
             StringContent toPost = new StringContent(jsonString, Encoding.UTF8, "application/json");
 			HttpResponseMessage response = await client.PostAsync(url, toPost);
-			HttpContent rawContent = response.Content;
-			String content = await rawContent.ReadAsStringAsync();
 
-			if (onResult != null) onResult(content);
+			HttpRequest.HandleResponseContent(response, onResult);
 
-			rawContent.Dispose();
 			response.Dispose();
 			client.Dispose();
 		}
@@ -47,6 +42,14 @@ namespace HiddenMessage.Service.ServerRequests
 			var header = client.DefaultRequestHeaders;
 			header.Add(ServerVariables.AUTH_HEADER, ServerVariables.AUTH_KEY);
             return client;
+        }
+
+        private async static void HandleResponseContent(HttpResponseMessage response, Func<String, String> onResult){
+			HttpContent rawContent = response.Content;
+			String content = await rawContent.ReadAsStringAsync();
+
+			if (onResult != null) onResult(content);
+            rawContent.Dispose();
         }
     }
 }
