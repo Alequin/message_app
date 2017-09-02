@@ -12,10 +12,7 @@ namespace HiddenMessage.Service.ServerRequests
 
 		public async static Task MakeGetRequest(String url, Func<String, String> onResult)
 		{
-			HttpClient client = new HttpClient();
-
-			var header = client.DefaultRequestHeaders;
-			header.Add(ServerVariables.AUTH_HEADER, ServerVariables.AUTH_KEY);
+			HttpClient client = HttpRequest.BuildClient();
 
 			HttpResponseMessage response = await client.GetAsync(url);
 			HttpContent rawContent = response.Content;
@@ -30,10 +27,7 @@ namespace HiddenMessage.Service.ServerRequests
 
 		public async static Task MakePostRequest(String url, String jsonString, Func<String, String> onResult)
 		{
-			HttpClient client = new HttpClient();
-
-			var header = client.DefaultRequestHeaders;
-			header.Add(ServerVariables.AUTH_HEADER, ServerVariables.AUTH_KEY);
+            HttpClient client = HttpRequest.BuildClient();
 
             StringContent toPost = new StringContent(jsonString, Encoding.UTF8, "application/json");
 			HttpResponseMessage response = await client.PostAsync(url, toPost);
@@ -46,5 +40,13 @@ namespace HiddenMessage.Service.ServerRequests
 			response.Dispose();
 			client.Dispose();
 		}
+
+        private static HttpClient BuildClient(){
+			HttpClient client = new HttpClient();
+
+			var header = client.DefaultRequestHeaders;
+			header.Add(ServerVariables.AUTH_HEADER, ServerVariables.AUTH_KEY);
+            return client;
+        }
     }
 }
