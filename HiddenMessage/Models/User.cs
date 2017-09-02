@@ -41,7 +41,7 @@ namespace HiddenMessage.Models
 
         public async void Save(Func<String, String> onComplete)
         {
-			await HttpRequest.MakePostRequest(ServerVariables.SERVER_URL + "/users", this.GetJson(), onComplete);
+			await HttpRequest.MakePostRequest(ServerVariables.URL + "/users", this.GetJson(), onComplete);
 		}
 
         private String GetJson()
