@@ -27,7 +27,7 @@ namespace HiddenMessage.Service.ServerRequests
             client.Dispose();
 		}
 
-		public async static Task MakePostRequest(String url, Func<HttpContent, String> onResult)
+		public async static Task MakePostRequest(String url, String jsonString, Func<HttpContent, String> onResult)
 		{
 			HttpClient client = new HttpClient();
 
