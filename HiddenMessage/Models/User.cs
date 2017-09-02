@@ -45,7 +45,7 @@ namespace HiddenMessage.Models
 			jsonHash.Add("isVisible", this.IsVisible);
 
             Dictionary<string, Dictionary<string, object>> jsonContainerHash = new Dictionary<string, Dictionary<string, object>>();
-            jsonContainerHash.Add("User", jsonHash);
+            jsonContainerHash.Add("user", jsonHash);
 
             return JsonConvert.SerializeObject(jsonContainerHash);
         }
