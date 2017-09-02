@@ -1,6 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using HiddenMessage.Service.ServerRequests;
 
 namespace HiddenMessage.Models
 {
@@ -34,7 +35,12 @@ namespace HiddenMessage.Models
         public String OnlineStatus { get { return onlineStatus; } }
 		public bool IsVisible { get { return isVisible; } }
 
-        public String getJson()
+        public void Save()
+        {
+			HttpRequest.MakePostRequest(ServerVariables.SERVER_URL + "/users", this.GetJson(), null);
+		}
+
+        private String GetJson()
         {
             Dictionary<string, Object> jsonHash = new Dictionary<string, Object>();
 			jsonHash.Add("name", this.Name);
