@@ -35,9 +35,13 @@ namespace HiddenMessage.Models
         public String OnlineStatus { get { return onlineStatus; } }
 		public bool IsVisible { get { return isVisible; } }
 
-        public void Save()
+        public async void Save(){
+            this.Save(null);
+        }
+
+        public async void Save(Func<String, String> onComplete)
         {
-			HttpRequest.MakePostRequest(ServerVariables.SERVER_URL + "/users", this.GetJson(), null);
+			await HttpRequest.MakePostRequest(ServerVariables.SERVER_URL + "/users", this.GetJson(), onComplete);
 		}
 
         private String GetJson()

@@ -14,7 +14,7 @@ namespace HiddenMessage
             InitializeComponent();
 
             User a = new User("bob", 1, null, null, "online", true);
-            a.Save();
+            a.Save(null);
         }   
     }
 }
