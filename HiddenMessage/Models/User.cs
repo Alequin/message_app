@@ -1,27 +1,21 @@
 ﻿using System;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using HiddenMessage.Service.ServerRequests;
 using System.Collections.Generic;
-
-using System.Linq;
-using System.Reflection;
 
 namespace HiddenMessage.Models
 {
     public class User
     {
 
-        public String name;
-        public int avatar;
-        public String deviceSystem;
-        public String deviceToken;
-        public String onlineStatus;
-        public bool isVisible;
+        private String name;
+        private int avatar;
+        private String deviceSystem;
+        private String deviceToken;
+        private String onlineStatus;
+        private bool isVisible;
 
-        public User(string name, int avatar, string deviceSystem, string deviceToken, string onlineStatus, bool isVisible)
+        public User(String name, int avatar, String deviceSystem, String deviceToken, String onlineStatus, bool isVisible)
         {
-            System.Diagnostics.Debug.WriteLine("out: " + name + "--------------------------------------------------");
             this.name = name;
             this.avatar = avatar;
             this.deviceSystem = deviceSystem;
@@ -32,8 +26,7 @@ namespace HiddenMessage.Models
 
 		public User(String name, int avatar, String onlineStatus, bool isVisible)
 		: this(name, avatar, null, null, onlineStatus, isVisible){}
-
-
+        
         public String Name { get { return name; } }
 		public int Avatar { get { return avatar; } }
         public String DeviceSystem { get  {return deviceSystem; } }
@@ -58,7 +51,7 @@ namespace HiddenMessage.Models
         }
     }
 }
- 
+
 
 
 //function User(name, avatar, deviceSystem, deviceToken, onlineStatus, isVisible)
