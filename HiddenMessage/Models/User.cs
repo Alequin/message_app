@@ -41,7 +41,7 @@ namespace HiddenMessage.Models
         public String OnlineStatus { get { return onlineStatus; } }
 		public bool IsVisible { get { return isVisible; } }
 
-        public void Save()
+        public String getJson()
         {
             Dictionary<string, Object> jsonHash = new Dictionary<string, Object>();
 			jsonHash.Add("name", this.Name);
@@ -54,10 +54,7 @@ namespace HiddenMessage.Models
             Dictionary<string, Dictionary<string, object>> jsonContainerHash = new Dictionary<string, Dictionary<string, object>>();
             jsonContainerHash.Add("User", jsonHash);
 
-            string jsonString = JsonConvert.SerializeObject(jsonContainerHash);
-
-            System.Diagnostics.Debug.WriteLine(jsonString + "----------------------------------------------");
-            //HttpRequest.MakePostRequest(ServerVariables.SERVER_URL, + "/users", null);
+            return JsonConvert.SerializeObject(jsonContainerHash);
         }
     }
 }
