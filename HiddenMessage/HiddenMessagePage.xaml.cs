@@ -14,7 +14,15 @@ namespace HiddenMessage
             InitializeComponent();
 
             User a = new User("bob", 1, null, null, "online", true);
-            a.Save();
+            String userJson = a.getJson();
+
+            System.Diagnostics.Debug.WriteLine(userJson);
+
+            HttpRequest.MakePostRequest(ServerVariables.SERVER_URL + "/users", userJson, (content) => {
+                Label b = (Label)Test;
+                b.Text = content;
+                return null;
+            });
         }
     }
 }

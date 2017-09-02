@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace HiddenMessage.Service.ServerRequests
@@ -20,28 +21,28 @@ namespace HiddenMessage.Service.ServerRequests
 			HttpContent rawContent = response.Content;
             String content = await rawContent.ReadAsStringAsync();
 
-            onResult(content);
+            if(onResult != null) onResult(content);
 
             rawContent.Dispose();
             response.Dispose();
             client.Dispose();
 		}
 
-		public async static Task MakePostRequest(String url, String jsonString, Func<HttpContent, String> onResult)
+		public async static Task MakePostRequest(String url, String jsonString, Func<String, String> onResult)
 		{
 			HttpClient client = new HttpClient();
 
 			var header = client.DefaultRequestHeaders;
 			header.Add(ServerVariables.AUTH_HEADER, ServerVariables.AUTH_KEY);
-			header.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            StringContent toPost = null;
-			HttpResponseMessage response = await client.PostAsync(ServerVariables.SERVER_URL + "/users", toPost);
-			HttpContent content = response.Content;
+            StringContent toPost = new StringContent(jsonString, Encoding.UTF8, "application/json");
+			HttpResponseMessage response = await client.PostAsync(url, toPost);
+			HttpContent rawContent = response.Content;
+			String content = await rawContent.ReadAsStringAsync();
 
-			onResult(content);
+			if (onResult != null) onResult(content);
 
-			content.Dispose();
+			rawContent.Dispose();
 			response.Dispose();
 			client.Dispose();
 		}
