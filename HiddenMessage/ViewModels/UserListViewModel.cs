@@ -13,11 +13,11 @@ namespace HiddenMessage.ViewModels
 		private string onlineStatus;
 		private string OnlineStatus{ get; set; }
 
-        public UserListViewModel(string avatar, string name, string onlineStatus)
+        public UserListViewModel(UserListViewModel user)
         {
-            this.avatar = avatar;
-            this.name = name;
-            this.onlineStatus = onlineStatus;
+            this.avatar = user.Avatar;
+            this.name = user.Name;
+            this.onlineStatus = user.OnlineStatus;
         }
     }
 }
