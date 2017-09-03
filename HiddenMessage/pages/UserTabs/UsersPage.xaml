@@ -5,7 +5,7 @@
     x:Class="HiddenMessage.pages.UserTabs.UsersPage"
     Title="Users" Icon="users.png">
 	<ContentPage.Content>
-        <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+        <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ImageCell 
