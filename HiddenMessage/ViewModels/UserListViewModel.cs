@@ -1,4 +1,6 @@
 ﻿using System;
+using HiddenMessage.Models;
+
 namespace HiddenMessage.ViewModels
 {
     public class UserListViewModel
@@ -13,7 +15,7 @@ namespace HiddenMessage.ViewModels
 		private string onlineStatus;
 		private string OnlineStatus{ get; set; }
 
-        public UserListViewModel(UserListViewModel user)
+        public UserListViewModel(User user)
         {
             this.avatar = "general_user.png";
             this.name = user.Name;
