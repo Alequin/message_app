@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using HiddenMessage.Models;
 using HiddenMessage.Notifications;
 using HiddenMessage.pages.UserTabs;
@@ -31,29 +32,40 @@ namespace HiddenMessage.pages
 
         void OnClickGoButton(object sender, System.EventArgs e)
         {
-            String enteredText = userNameEntry.Text;
+            newUserViewModel.ShowPleaseWaitMessage();
+            userNameEntry.IsEnabled = false;
+            this.HandleOnClickGoButton();
+        }
 
-            if(enteredText == null || enteredText.Length <= 0)
-            {
-                newUserViewModel.ShowEmptyInputMessage();
-                return;
-            }
+        private void HandleOnClickGoButton(){
+			String enteredText = userNameEntry.Text;
 
-            IToken token = DependencyService.Get<IToken>();
-            User newUser = new User(enteredText, 1, Device.RuntimePlatform, token.GetToken(), "Online", true);
+			if (enteredText == null || enteredText.Length <= 0)
+			{
+				newUserViewModel.ShowEmptyInputMessage();
+                userNameEntry.IsEnabled = true;
+				return;
+			}
 
-            newUser.Save((result) => {
-                JObject userJObject = JsonHelper.DeserialiseObject(result);
-                User resultantUser = new User(userJObject);
+			IToken token = DependencyService.Get<IToken>();
+			User newUser = new User(enteredText, 1, Device.RuntimePlatform, token.GetToken(), "Online", true);
 
-                if(resultantUser.Id > 0){
-                    Navigation.PushModalAsync(new MainTabbedPages());   
-                }else{
-                    newUserViewModel.ShowNameTakenMessage();
-                }
+			newUser.Save((result) => {
+				JObject userJObject = JsonHelper.DeserialiseObject(result);
+				User resultantUser = new User(userJObject);
 
-                return null;
-            });
+				if (resultantUser.Id > 0)
+				{
+					Navigation.PushModalAsync(new MainTabbedPages());
+				}
+				else
+				{
+					newUserViewModel.ShowNameTakenMessage();
+                    userNameEntry.IsEnabled = true;
+				}
+
+				return null;
+			});
         }
     }
 }
