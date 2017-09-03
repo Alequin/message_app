@@ -42,7 +42,7 @@
     <EmbeddedResource Include="pages\UserTabs\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="pages\NewUser.xaml">
+    <EmbeddedResource Include="pages\NewUserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -71,9 +71,10 @@
     </Compile>
     <Compile Include="ViewModels\UserListViewModel.cs" />
     <Compile Include="Service\JsonHelper.cs" />
-    <Compile Include="pages\NewUser.xaml.cs">
-      <DependentUpon>NewUser.xaml</DependentUpon>
+    <Compile Include="pages\NewUserPage.xaml.cs">
+      <DependentUpon>NewUserPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\NewUserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

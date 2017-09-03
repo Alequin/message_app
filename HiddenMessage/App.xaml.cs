@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 using HiddenMessage.pages.UserTabs;
+using HiddenMessage.pages;
 
 namespace HiddenMessage
 {
@@ -9,7 +10,7 @@ namespace HiddenMessage
         {
             InitializeComponent();
 
-            MainPage = new MainTabbedPages();
+            MainPage = new NewUserPage();
         }
 
         protected override void OnStart()
