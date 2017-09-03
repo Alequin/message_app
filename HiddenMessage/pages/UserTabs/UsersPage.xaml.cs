@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using HiddenMessage.Models;
-using HiddenMessage.ViewModels;
+using HiddenMessage.Service.ServerRequests;
 using Xamarin.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Converters;
+using System.Dynamic;
+using HiddenMessage.Models.Deserializers;
 
 namespace HiddenMessage.pages.UserTabs
 {
@@ -15,14 +20,13 @@ namespace HiddenMessage.pages.UserTabs
 
             ListView lv = (ListView)list;
 
-            List<UserListViewModel> content = new List<UserListViewModel>();
-			content.Add(new UserListViewModel(new User("bob", 0, null, null, "Online", true)));
-			content.Add(new UserListViewModel(new User("sally", 0, null, null, "Online", true)));
-			content.Add(new UserListViewModel(new User("andy", 0, null, null, "Online", true)));
-			content.Add(new UserListViewModel(new User("emily", 0, null, null, "Offline", true)));
-
-            lv.HasUnevenRows = true;
-            lv.ItemsSource = content;
+            HttpRequest.MakeGetRequest(ServerVariables.URL + "/users", (content) => {
+                System.Diagnostics.Debug.WriteLine(content);
+                JArray result = (JArray)JsonConvert.DeserializeObject(content);
+                JObject x = (JObject)JsonConvert.DeserializeObject(result[0].ToString());
+                System.Diagnostics.Debug.WriteLine(x["name"]);
+                return null;
+            });
         }
     }
 }
