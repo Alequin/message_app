@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using HiddenMessage.Models;
 using HiddenMessage.Notifications;
+using HiddenMessage.pages.UserTabs;
 using HiddenMessage.Service;
 using HiddenMessage.Service.ServerRequests;
 using HiddenMessage.ViewModels;
@@ -46,7 +47,7 @@ namespace HiddenMessage.pages
                 User resultantUser = new User(userJObject);
 
                 if(resultantUser.Id > 0){
-                    new NavigationPage(new UserTabs.MainTabbedPages());    
+                    Navigation.PushModalAsync(new MainTabbedPages());   
                 }else{
                     newUserViewModel.ShowNameTakenMessage();
                 }
