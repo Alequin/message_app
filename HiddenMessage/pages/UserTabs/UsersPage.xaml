@@ -5,6 +5,6 @@
     x:Class="HiddenMessage.pages.UserTabs.UsersPage"
     Title="Users" Icon="users.png">
 	<ContentPage.Content>
-        <Label Text="test users page"></Label>
+          <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"></ListView>
 	</ContentPage.Content>
 </ContentPage>

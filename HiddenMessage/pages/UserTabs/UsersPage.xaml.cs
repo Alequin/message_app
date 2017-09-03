@@ -10,6 +10,17 @@ namespace HiddenMessage.pages.UserTabs
         public UsersPage()
         {
             InitializeComponent();
+
+
+            ListView lv = (ListView)list;
+
+            List<String> content = new List<string>();
+            content.Add("one");
+            content.Add("two");
+            content.Add("three");
+
+            lv.HasUnevenRows = true;
+            lv.ItemsSource = content;
         }
     }
 }

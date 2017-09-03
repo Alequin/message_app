@@ -10,6 +10,6 @@ namespace HiddenMessage.pages.UserTabs
         public ConversationPage()
         {
             InitializeComponent();
-        }
+		}
     }
 }

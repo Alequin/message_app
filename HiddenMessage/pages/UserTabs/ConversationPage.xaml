@@ -5,6 +5,6 @@
     x:Class="HiddenMessage.pages.UserTabs.ConversationPage"
     Title="Messages" Icon="convo_bubbles.png">
 	<ContentPage.Content>
-        
-	</ContentPage.Content>
+
+    </ContentPage.Content>
 </ContentPage>
