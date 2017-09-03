@@ -5,6 +5,16 @@
     x:Class="HiddenMessage.pages.UserTabs.UsersPage"
     Title="Users" Icon="users.png">
 	<ContentPage.Content>
-          <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand"></ListView>
+        <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell 
+                        Text="{Binding Name}" 
+                        Detail="{Binding OnlineStatus}" 
+                        ImageSource="{Binding Avatar}">
+                    </ImageCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 	</ContentPage.Content>
 </ContentPage>
