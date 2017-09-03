@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using HiddenMessage.Notifications;
 using HiddenMessage.ViewModels;
 using Xamarin.Forms;
 
@@ -21,6 +22,8 @@ namespace HiddenMessage.pages
         void OnClickGoButton(object sender, System.EventArgs e)
         {
             newUserViewModel.setInstructionTextToWarningMessage();
+            IToken a = DependencyService.Get<IToken>();
+            System.Diagnostics.Debug.WriteLine(a.GetToken());
         }
     }
 }

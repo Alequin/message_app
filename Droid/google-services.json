@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "333073509363",
-    "firebase_url": "https://fcmclient-d1e8a.firebaseio.com",
-    "project_id": "fcmclient-d1e8a",
-    "storage_bucket": "fcmclient-d1e8a.appspot.com"
+    "project_number": "1097994739368",
+    "firebase_url": "https://hiddenmessage-b4bba.firebaseio.com",
+    "project_id": "hiddenmessage-b4bba",
+    "storage_bucket": "hiddenmessage-b4bba.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:333073509363:android:2b6b3d950651cf4b",
+        "mobilesdk_app_id": "1:1097994739368:android:11c3e0da020c109e",
         "android_client_info": {
-          "package_name": "com.companyname.FCMClient"
+          "package_name": "com.companyname.HiddenMessage"
         }
       },
       "oauth_client": [
         {
-          "client_id": "333073509363-jeda234vra42o1mju4f5h7vh006r9jra.apps.googleusercontent.com",
+          "client_id": "1097994739368-nrjts22bsqmgeg93fsesalum21o4qdaq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBY8YAD1rrvV9p9tkYzUv_1qDbLtTMhka0"
+          "current_key": "AIzaSyDxE_IJhAr5byUjswGoiGGmn1Awyq9cJUA"
         }
       ],
       "services": {

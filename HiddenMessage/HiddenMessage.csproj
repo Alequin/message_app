@@ -75,6 +75,7 @@
       <DependentUpon>NewUserPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\NewUserViewModel.cs" />
+    <Compile Include="Notifications\IToken.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

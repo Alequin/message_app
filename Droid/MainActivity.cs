@@ -12,6 +12,7 @@ using Android.Gms.Common;
 using Firebase.Messaging;
 using Firebase.Iid;
 using Android.Util;
+using Firebase;
 
 namespace HiddenMessage.Droid
 {
@@ -28,13 +29,22 @@ namespace HiddenMessage.Droid
 
             base.OnCreate(bundle);
 
-            IsPlayServicesAvailable();
+			IsPlayServicesAvailable();
+
+			if (Intent.Extras != null)
+			{
+				foreach (var key in Intent.Extras.KeySet())
+				{
+					var value = Intent.Extras.GetString(key);
+					Log.Debug(TAG, "Key: {0} Value: {1}", key, value);
+				}
+			}
+
+            FirebaseApp.InitializeApp(this);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            LoadApplication(new App());
-
-			
+            LoadApplication(new App());	
         }
 
         public bool IsPlayServicesAvailable()
