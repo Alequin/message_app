@@ -19,13 +19,9 @@ namespace HiddenMessage.pages.UserTabs
 
             ListView lv = (ListView)list;
 
-            HttpRequest.MakeGetRequest(ServerVariables.URL + "/users", (content) => {
-                System.Diagnostics.Debug.WriteLine(content);
-                JArray result = (JArray)JsonConvert.DeserializeObject(content);
-                JObject x = (JObject)JsonConvert.DeserializeObject(result[0].ToString());
-                System.Diagnostics.Debug.WriteLine(x["name"]);
-                return null;
-            });
+            //HttpRequest.MakeGetRequest(ServerVariables.URL + "/users", (content) => {
+                
+            //});
         }
     }
 }

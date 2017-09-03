@@ -2,12 +2,14 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using HiddenMessage.Service.ServerRequests;
+using Newtonsoft.Json.Linq;
 
 namespace HiddenMessage.Models
 {
     public class User
     {
 
+        private int id;
         private String name;
         private int avatar;
         private String deviceSystem;
@@ -15,8 +17,9 @@ namespace HiddenMessage.Models
         private String onlineStatus;
         private bool isVisible;
 
-        public User(String name, int avatar, String deviceSystem, String deviceToken, String onlineStatus, bool isVisible)
+        private User(int id, String name, int avatar, String deviceSystem, String deviceToken, String onlineStatus, bool isVisible)
         {
+            this.id = id;
             this.name = name;
             this.avatar = avatar;
             this.deviceSystem = deviceSystem;
@@ -25,10 +28,19 @@ namespace HiddenMessage.Models
             this.isVisible = isVisible;
         }
 
+		public User(String name, int avatar, String deviceSystem, String deviceToken, String onlineStatus, bool isVisible)
+		    : this(-1, name, avatar, deviceSystem, deviceToken, onlineStatus, isVisible) { }
+
 		public User(String name, int avatar, String onlineStatus, bool isVisible)
-		: this(name, avatar, null, null, onlineStatus, isVisible){}
-        
-        public String Name { get { return name; } }
+		    : this(-1, name, avatar, null, null, onlineStatus, isVisible){}
+
+		public User(JObject user)
+            : this((int)user["id"], user["name"].ToString(), (int)user["avatar"], 
+                   user["deviceSystem"].ToString(), user["deviceToken"].ToString(), 
+                   user["onlineStatus"].ToString(), (bool)user["isVisible"]){}
+
+		public int Id { get { return id; } }
+		public String Name { get { return name; } }
 		public int Avatar { get { return avatar; } }
         public String DeviceSystem { get  {return deviceSystem; } }
 		public String DeviceToken { get { return deviceToken; } }
