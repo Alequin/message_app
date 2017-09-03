@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using HiddenMessage.ViewModels;
 using Xamarin.Forms;
 
 namespace HiddenMessage.pages.UserTabs
@@ -14,10 +14,8 @@ namespace HiddenMessage.pages.UserTabs
 
             ListView lv = (ListView)list;
 
-            List<String> content = new List<string>();
-            content.Add("one");
-            content.Add("two");
-            content.Add("three");
+            List<UserListViewModel> content = new List<UserListViewModel>();
+
 
             lv.HasUnevenRows = true;
             lv.ItemsSource = content;

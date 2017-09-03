@@ -15,7 +15,7 @@ namespace HiddenMessage.ViewModels
 
         public UserListViewModel(UserListViewModel user)
         {
-            this.avatar = user.Avatar;
+            this.avatar = "general_user.png";
             this.name = user.Name;
             this.onlineStatus = user.OnlineStatus;
         }
