@@ -2,6 +2,7 @@
 using HiddenMessage.pages.UserTabs;
 using HiddenMessage.pages;
 using HiddenMessage.Service;
+using HiddenMessage.Models;
 
 namespace HiddenMessage
 {
@@ -13,11 +14,14 @@ namespace HiddenMessage
 
             UserSettings settings = new UserSettings();
 
+            User newUser = new User("bob", 1, null, null, "Online", true);
+            settings.SaveNewUser(newUser);
+
             if(!settings.IsUserSaved())
             {
                 MainPage = new NewUserPage();
             }else{
-                MainPage = new TabbedPage();
+                MainPage = new MainTabbedPages();
             }
         }
 
