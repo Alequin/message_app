@@ -35,8 +35,8 @@ namespace HiddenMessage.ViewModels
 
         public void ShowPleaseWaitMessage()
         {
-            instructionText = "This name is taken";
-			instructionTextColour = Color.Red;
+			instructionText = "Please Wait. Talking with server";
+			instructionTextColour = Color.Black;
 			this.HandelInstructionTextChange();
         }
 
