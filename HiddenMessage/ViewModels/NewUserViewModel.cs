@@ -7,14 +7,14 @@ namespace HiddenMessage.ViewModels
     public class NewUserViewModel : INotifyPropertyChanged
     {
 
-		private string instructionText;
-		private Color instructionTextColour;
+        private string instructionText;
+        private Color instructionTextColour;
 
         public event PropertyChangedEventHandler PropertyChanged;
-		private void OnPropertyChange(String propertyName)
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
+        private void OnPropertyChange(String propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public string InstructionText
         {
@@ -22,10 +22,10 @@ namespace HiddenMessage.ViewModels
             set { instructionText = value; }
         }
 
-		public Color InstructionTextColour
-		{
-			get { return instructionTextColour; }
-		}
+        public Color InstructionTextColour
+        {
+            get { return instructionTextColour; }
+        }
 
         public NewUserViewModel()
         {
@@ -33,21 +33,32 @@ namespace HiddenMessage.ViewModels
             this.instructionTextColour = Color.Black;
         }
 
+        public void ShowPleaseWaitMessage()
+        {
+            instructionText = "This name is taken";
+			instructionTextColour = Color.Red;
+			this.HandelInstructionTextChange();
+        }
+
         public void ShowNameTakenMessage()
         {
             instructionText = "This name is taken";
-            instructionTextColour = Color.Red;
-			this.OnPropertyChange("InstructionText");
-			this.OnPropertyChange("InstructionTextColour");
+			instructionTextColour = Color.Red;
+			this.HandelInstructionTextChange();
         }
 
-		public void ShowEmptyInputMessage()
-		{
+        public void ShowEmptyInputMessage()
+        {
             instructionText = "It's empty. Pick a user name";
-			instructionTextColour = Color.Red;
-			this.OnPropertyChange("InstructionText");
-			this.OnPropertyChange("InstructionTextColour");
-		}
+            instructionTextColour = Color.Red;
+            this.HandelInstructionTextChange();
+        }
+
+        private void HandelInstructionTextChange()
+        {
+            this.OnPropertyChange("InstructionText");
+            this.OnPropertyChange("InstructionTextColour");
+        }
 		
     }
 }
