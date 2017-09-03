@@ -47,7 +47,7 @@ namespace HiddenMessage.Service
             this.userName = newUser.Name;
 
 			Application.Current.Properties[ID_KEY] = this.userId;
-			Application.Current.Properties[NAME_KEY] = this.userId;
+			Application.Current.Properties[NAME_KEY] = this.userName;
         }
 
 		private int LoadUserId()
@@ -63,6 +63,7 @@ namespace HiddenMessage.Service
 
 		private String LoadUserName()
 		{
+            var x = Application.Current.Properties[NAME_KEY];
             if(IsUserNameSaved()) return (String)Application.Current.Properties[NAME_KEY];
             return "";
 		}
