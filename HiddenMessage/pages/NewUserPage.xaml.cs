@@ -8,13 +8,16 @@ namespace HiddenMessage.pages
 {
     public partial class NewUserPage : ContentPage
     {
-
-
+        
         private NewUserViewModel newUserViewModel;
+
+        private Entry userNameEntry;
 
         public NewUserPage()
         {
             InitializeComponent();
+
+            userNameEntry = (Entry) userEntry;
 
 			newUserViewModel = new NewUserViewModel();
 			BindingContext = newUserViewModel;
@@ -22,7 +25,14 @@ namespace HiddenMessage.pages
 
         void OnClickGoButton(object sender, System.EventArgs e)
         {
-            Application.Current.Properties["test"] = ((Entry)userEntry).Text;
+
+            String enteredText = userNameEntry.Text;
+
+            if(enteredText == null || enteredText.Length <= 0)
+            {
+                newUserViewModel.ShowEmptyInputMessage();
+                return;
+            }
         }
     }
 }

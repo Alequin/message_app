@@ -33,13 +33,21 @@ namespace HiddenMessage.ViewModels
             this.instructionTextColour = Color.Black;
         }
 
-        public void setInstructionTextToWarningMessage()
+        public void ShowNameTakenMessage()
         {
             instructionText = "This name is taken";
             instructionTextColour = Color.Red;
 			this.OnPropertyChange("InstructionText");
 			this.OnPropertyChange("InstructionTextColour");
         }
+
+		public void ShowEmptyInputMessage()
+		{
+            instructionText = "It's empty. Pick a user name";
+			instructionTextColour = Color.Red;
+			this.OnPropertyChange("InstructionText");
+			this.OnPropertyChange("InstructionTextColour");
+		}
 		
     }
 }

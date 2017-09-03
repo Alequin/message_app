@@ -13,10 +13,6 @@ namespace HiddenMessage
             InitializeComponent();
 
             UserSettings settings = new UserSettings();
-
-            User newUser = new User("bob", 1, null, null, "Online", true);
-            settings.SaveNewUser(newUser);
-
             if(!settings.IsUserSaved())
             {
                 MainPage = new NewUserPage();
