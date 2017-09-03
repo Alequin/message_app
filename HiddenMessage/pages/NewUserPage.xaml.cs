@@ -45,9 +45,11 @@ namespace HiddenMessage.pages
                 JObject userJObject = JsonHelper.DeserialiseObject(result);
                 User resultantUser = new User(userJObject);
 
-                //if(resultantUser.Id > 0){
-                    
-                //}
+                if(resultantUser.Id > 0){
+                    new NavigationPage(new UserTabs.MainTabbedPages());    
+                }else{
+                    newUserViewModel.ShowNameTakenMessage();
+                }
 
                 return null;
             });
