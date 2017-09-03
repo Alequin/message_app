@@ -31,7 +31,7 @@ namespace HiddenMessage.ViewModels
 				switch (onlineStatus)
 				{
 					case "Offline":
-						onlineStatusColour = Color.Gray;
+                        onlineStatusColour = (Color)Application.Current.Resources["offlineColour"];
 						break;
 					default:
 						onlineStatusColour = Color.Black;
