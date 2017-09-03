@@ -40,12 +40,31 @@ namespace HiddenMessage.Models
                    user["onlineStatus"].ToString(), (bool)user["isVisible"]){}
 
 		public int Id { get { return id; } }
-		public String Name { get { return name; } }
-		public int Avatar { get { return avatar; } }
-        public String DeviceSystem { get  {return deviceSystem; } }
-		public String DeviceToken { get { return deviceToken; } }
-        public String OnlineStatus { get { return onlineStatus; } }
-		public bool IsVisible { get { return isVisible; } }
+        public String Name 
+        { 
+            get { return name; } 
+            set { name = value; } 
+        }
+		public int Avatar {
+			get { return avatar; }
+			set { avatar = value; }
+		}
+        public String DeviceSystem {
+			get { return deviceSystem; }
+			set { deviceSystem = value; }
+		}
+		public String DeviceToken {
+			get { return deviceToken; }
+			set { deviceToken = value; }
+		}
+        public String OnlineStatus {
+			get { return onlineStatus; }
+			set { onlineStatus = value; }
+		}
+		public bool IsVisible {
+			get { return isVisible; }
+			set { isVisible = value; }
+		}
 
         public async void Save(){
             this.Save(null);
