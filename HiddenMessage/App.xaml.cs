@@ -10,7 +10,8 @@ namespace HiddenMessage
         {
             InitializeComponent();
 
-            MainPage = new NewUserPage();
+			MainPage = new NewUserPage();
+			//MainPage = new TabbedPage();
         }
 
         protected override void OnStart()

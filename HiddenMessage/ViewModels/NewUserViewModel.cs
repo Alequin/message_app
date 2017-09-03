@@ -19,6 +19,7 @@ namespace HiddenMessage.ViewModels
         public string InstructionText
         {
             get { return instructionText; }
+            set { instructionText = value; }
         }
 
 		public Color InstructionTextColour

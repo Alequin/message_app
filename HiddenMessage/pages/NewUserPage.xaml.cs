@@ -9,6 +9,7 @@ namespace HiddenMessage.pages
     public partial class NewUserPage : ContentPage
     {
 
+
         private NewUserViewModel newUserViewModel;
 
         public NewUserPage()
@@ -21,9 +22,7 @@ namespace HiddenMessage.pages
 
         void OnClickGoButton(object sender, System.EventArgs e)
         {
-            newUserViewModel.setInstructionTextToWarningMessage();
-            IToken a = DependencyService.Get<IToken>();
-            System.Diagnostics.Debug.WriteLine(a.GetToken());
+            Application.Current.Properties["test"] = ((Entry)userEntry).Text;
         }
     }
 }

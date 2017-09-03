@@ -16,7 +16,7 @@
                 Margin="0,30,0,0"
                 >
             </Label>
-            <Entry Placeholder="UserName" VerticalOptions="Center" HorizontalTextAlignment="Center"></Entry>
+            <Entry x:Name="userEntry" Placeholder="UserName" VerticalOptions="Center" HorizontalTextAlignment="Center"></Entry>
             <Button Text="Go" BorderWidth="1" BorderColor="Gray" Clicked="OnClickGoButton"></Button>
         </StackLayout>
 	</ContentPage.Content>

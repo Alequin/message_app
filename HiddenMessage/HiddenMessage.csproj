@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="ViewModels\NewUserViewModel.cs" />
     <Compile Include="Notifications\IToken.cs" />
+    <Compile Include="Service\UserSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
