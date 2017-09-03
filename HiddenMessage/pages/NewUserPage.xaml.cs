@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace HiddenMessage.pages
 {
-    public partial class NewUser : ContentPage
+    public partial class NewUserPage : ContentPage
     {
-        public NewUser()
+        public NewUserPage()
         {
             InitializeComponent();
         }
