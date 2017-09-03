@@ -36,12 +36,9 @@ namespace HiddenMessage.Service
             this.userName = this.LoadUserName();
         }
 
-        public bool isUserSaved()
+        public bool IsUserSaved()
         {
-            return (
-                Application.Current.Properties.ContainsKey(ID_KEY] &&
-                Application.Current.Properties.ContainsKey(NAME_KEY]
-                                                          );
+            return (this.IsUserIdSaved() && this.IsUserNameSaved());
         }
 
         public void SaveNewUser(User newUser)
@@ -55,12 +52,24 @@ namespace HiddenMessage.Service
 
 		private int LoadUserId()
 		{
-			return (int)Application.Current.Properties[ID_KEY];
+            if(IsUserIdSaved()) return (int)Application.Current.Properties[ID_KEY];
+            return -1;
+		}
+
+		private bool IsUserIdSaved()
+		{
+			return Application.Current.Properties.ContainsKey(ID_KEY);
 		}
 
 		private String LoadUserName()
 		{
-			return (String)Application.Current.Properties[NAME_KEY];
+            if(IsUserNameSaved()) return (String)Application.Current.Properties[NAME_KEY];
+            return "";
+		}
+
+		private bool IsUserNameSaved()
+		{
+			return Application.Current.Properties.ContainsKey(NAME_KEY);
 		}
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using HiddenMessage.pages.UserTabs;
 using HiddenMessage.pages;
+using HiddenMessage.Service;
 
 namespace HiddenMessage
 {
@@ -10,8 +11,14 @@ namespace HiddenMessage
         {
             InitializeComponent();
 
-			MainPage = new NewUserPage();
-			//MainPage = new TabbedPage();
+            UserSettings settings = new UserSettings();
+
+            if(!settings.IsUserSaved())
+            {
+                MainPage = new NewUserPage();
+            }else{
+                MainPage = new TabbedPage();
+            }
         }
 
         protected override void OnStart()
