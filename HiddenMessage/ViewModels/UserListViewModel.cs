@@ -1,5 +1,6 @@
 ﻿using System;
 using HiddenMessage.Models;
+using Xamarin.Forms;
 
 namespace HiddenMessage.ViewModels
 {
@@ -24,14 +25,32 @@ namespace HiddenMessage.ViewModels
 		public string OnlineStatus
 		{
 			get { return onlineStatus; }
-			set { onlineStatus = value; }
+			set 
+            { 
+                onlineStatus = value;
+				switch (onlineStatus)
+				{
+					case "Offline":
+						onlineStatusColour = Color.Gray;
+						break;
+					default:
+						onlineStatusColour = Color.Black;
+						break;
+				}
+            }
 		}
+
+        private Color onlineStatusColour;
+        public Color OnlineStatusColour
+        {
+            get { return onlineStatusColour; }  
+        }
 
         public UserListViewModel(User user)
         {
-            this.avatarUrl = "general_user.png";
-            this.name = user.Name;
-            this.onlineStatus = user.OnlineStatus;
+            this.AvatarUrl = "general_user.png";
+            this.Name = user.Name;
+            this.OnlineStatus = user.OnlineStatus;
         }
     }
 }

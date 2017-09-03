@@ -11,6 +11,7 @@
                     <ImageCell 
                         Text="{Binding Name}" 
                         Detail="{Binding OnlineStatus}"
+                        DetailColor="{Binding OnlineStatusColour}"
                         ImageSource="{Binding AvatarUrl}">
                     </ImageCell>
                 </DataTemplate>
