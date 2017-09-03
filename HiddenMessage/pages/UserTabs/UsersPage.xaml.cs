@@ -15,25 +15,30 @@ namespace HiddenMessage.pages.UserTabs
 {
     public partial class UsersPage : ContentPage
     {
+
+        UserSettings settings = new UserSettings();
+
         public UsersPage()
         {
             InitializeComponent();
-
 
             ListView lv = (ListView)list;
             ObservableCollection<UserListViewModel> users = new ObservableCollection<UserListViewModel>();
             lv.ItemsSource = users;
 
-            //HttpRequest.MakeGetRequest(ServerVariables.URL + "/users", (content) => {
-            //    JObject[] usersAsJson = JsonHelper.DeserialiseArray(content);
+            HttpRequest.MakeGetRequest(ServerVariables.URL + "/users", (content) => {
+                JObject[] usersAsJson = JsonHelper.DeserialiseArray(content);
 
-            //    for (int j = 0; j < usersAsJson.Length; j++)
-            //    {
-            //        User user = new User(usersAsJson[j]);
-            //        users.Add(new UserListViewModel(user));
-            //    }
-            //    return null;
-            //});
+                foreach (JObject jsonUser in usersAsJson)
+                {
+                    if((int)jsonUser["id"] != settings.UserId)
+                    {
+						User user = new User(jsonUser);
+						users.Add(new UserListViewModel(user)); 
+                    }
+                }
+                return null;
+            });
         }
     }
 }

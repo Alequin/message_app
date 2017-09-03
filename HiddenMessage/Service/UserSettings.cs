@@ -52,6 +52,7 @@ namespace HiddenMessage.Service
 
 		private int LoadUserId()
 		{
+            
             if(IsUserIdSaved()) return (int)Application.Current.Properties[ID_KEY];
             return -1;
 		}
@@ -63,7 +64,6 @@ namespace HiddenMessage.Service
 
 		private String LoadUserName()
 		{
-            var x = Application.Current.Properties[NAME_KEY];
             if(IsUserNameSaved()) return (String)Application.Current.Properties[NAME_KEY];
             return "";
 		}
