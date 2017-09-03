@@ -1,5 +1,23 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="HiddenMessage.pages.NewUserPage">
 	<ContentPage.Content>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label 
+                Text="App Title" 
+                VerticalOptions="Start"
+                HorizontalTextAlignment="Center"
+                Font="Bold, 50"
+                >
+            </Label>
+            <Label 
+                Text="{Binding InstructionText}" 
+                TextColor="{Binding InstructionTextColour}"
+                HorizontalTextAlignment="Center" 
+                Margin="0,30,0,0"
+                >
+            </Label>
+            <Entry Placeholder="UserName" VerticalOptions="Center" HorizontalTextAlignment="Center"></Entry>
+            <Button Text="Go" BorderWidth="1" BorderColor="Gray" Clicked="OnClickGoButton"></Button>
+        </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
