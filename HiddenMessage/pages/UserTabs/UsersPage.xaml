@@ -10,8 +10,8 @@
                 <DataTemplate>
                     <ImageCell 
                         Text="{Binding Name}" 
-                        Detail="{Binding OnlineStatus}" 
-                        ImageSource="{Binding Avatar}">
+                        Detail="{Binding OnlineStatus}"
+                        ImageSource="{Binding AvatarUrl}">
                     </ImageCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

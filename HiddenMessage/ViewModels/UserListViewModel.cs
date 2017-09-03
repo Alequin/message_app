@@ -6,18 +6,30 @@ namespace HiddenMessage.ViewModels
     public class UserListViewModel
     {
 
-		private string avatar;
-		private string Avatar{ get; set; }
+        private string avatarUrl;
+        public string AvatarUrl
+        { 
+            get { return avatarUrl; } 
+            set { avatarUrl = value; }
+        }
 
 		private string name;
-		private string Name{ get; set; }
+		public string Name
+		{
+			get { return name; }
+			set { name = value; }
+		}
 
 		private string onlineStatus;
-		private string OnlineStatus{ get; set; }
+		public string OnlineStatus
+		{
+			get { return onlineStatus; }
+			set { onlineStatus = value; }
+		}
 
         public UserListViewModel(User user)
         {
-            this.avatar = "general_user.png";
+            this.avatarUrl = "general_user.png";
             this.name = user.Name;
             this.onlineStatus = user.OnlineStatus;
         }
