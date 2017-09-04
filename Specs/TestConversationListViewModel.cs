@@ -17,7 +17,7 @@ namespace Specs
         public void Setup()
         {
 			userNames = new List<string>() { "name1", "name2", "name3", "name4" };
-            viewModel = new ConversationListViewModel("last message", userNames);
+            viewModel = new ConversationListViewModel(-1, "last message", userNames);
 		}
 
 		[Test]

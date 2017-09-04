@@ -6,16 +6,23 @@ namespace HiddenMessage.ViewModels
     public class ConversationListViewModel
     {
 
+        private int conversationId;
         private List<String> usersCollection;
         private String usersText;
         private String lastMessage;
 
-        public ConversationListViewModel(String lastMessage, List<String> usersCollection)
+        public ConversationListViewModel(int conversationId, String lastMessage, List<String> usersCollection)
         {
+            this.conversationId = conversationId;
             this.lastMessage = lastMessage;
             this.usersCollection = usersCollection;
             this.usersText = BuildUsersText();
         }
+
+		public int ConversationId
+		{
+			get { return conversationId; }
+		}
 
         public String UsersText
         {
