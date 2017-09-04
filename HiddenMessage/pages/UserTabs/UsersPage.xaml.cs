@@ -31,7 +31,7 @@ namespace HiddenMessage.pages.UserTabs
                 UserListViewModel selectedViewModel = (UserListViewModel)e.Group;
                 bool answer = await DisplayAlert("", "Start a conversations with " + selectedViewModel.Name, "Yes", "No");
                 if(answer){
-                    this.startConversation(selectedViewModel.UserId);
+                    this.StartConversation(selectedViewModel.UserId);
                 }
 			};
 
@@ -50,12 +50,10 @@ namespace HiddenMessage.pages.UserTabs
             });
         }
 
-        private void startConversation(int userToStartWith)
+        private void StartConversation(int userToStartWith)
         {
-			HttpRequest.MakePostRequest(ServerVariables.URL + "/users", (content) => {
-				
-				return null;
-			}); 
+            string route = $"/conversations/user/{settings.UserId}/other_user/{userToStartWith}";
+            HttpRequest.MakePostRequest(ServerVariables.URL + route, "", null); 
         }
     }
 }
