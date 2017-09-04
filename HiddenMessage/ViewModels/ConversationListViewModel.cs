@@ -22,6 +22,12 @@ namespace HiddenMessage.ViewModels
             get { return "Users: " + usersText; }
         }
 
+        public void AddUser(String userName)
+        {
+            usersCollection.Add(userName);
+            this.usersText = BuildUsersText();
+        }
+
         private String BuildUsersText(){
 
             string text = "";
