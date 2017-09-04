@@ -6,14 +6,14 @@
     Title="Messages" Icon="convo_bubbles.png">
 	<ContentPage.Content>
         <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell 
-                            Text="{Binding UsersText}" 
-                            Detail="{Binding LastMessage}">
-                        </TextCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell 
+                        Text="{Binding UsersText}" 
+                        Detail="{Binding LastMessage}">
+                    </TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
