@@ -14,6 +14,12 @@ namespace HiddenMessage.ViewModels
             set { avatarUrl = value; }
         }
 
+        private int userId;
+        public int UserId
+        {
+            get { return userId; }
+        }
+
 		private string name;
 		public string Name
 		{
@@ -49,6 +55,7 @@ namespace HiddenMessage.ViewModels
         public UserListViewModel(User user)
         {
             this.AvatarUrl = "general_user.png";
+            this.userId = user.Id;
             this.Name = user.Name;
             this.OnlineStatus = user.OnlineStatus;
         }
