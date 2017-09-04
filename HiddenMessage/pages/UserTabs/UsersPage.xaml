@@ -5,17 +5,20 @@
     x:Class="HiddenMessage.pages.UserTabs.UsersPage"
     Title="Users" Icon="users.png">
 	<ContentPage.Content>
-        <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ImageCell 
-                        Text="{Binding Name}" 
-                        Detail="{Binding OnlineStatus}"
-                        DetailColor="{Binding OnlineStatusColour}"
-                        ImageSource="{Binding AvatarUrl}">
-                    </ImageCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout>
+            <SearchBar></SearchBar>
+            <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell 
+                            Text="{Binding Name}" 
+                            Detail="{Binding OnlineStatus}"
+                            DetailColor="{Binding OnlineStatusColour}"
+                            ImageSource="{Binding AvatarUrl}">
+                        </ImageCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
