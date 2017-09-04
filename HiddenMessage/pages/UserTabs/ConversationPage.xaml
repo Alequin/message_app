@@ -9,7 +9,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextCell 
-                            Text="{Binding Users}" 
+                            Text="{Binding UsersText}" 
                             Detail="{Binding LastMessage}">
                         </TextCell>
                     </DataTemplate>
