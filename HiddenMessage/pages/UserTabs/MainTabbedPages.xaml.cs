@@ -20,15 +20,16 @@ namespace HiddenMessage.pages.UserTabs
             UsersPage usersPage = new UsersPage();
             this.Children.Add(usersPage);
 
-			usersPage.ListView.ItemTapped += async (sender, e) =>
+			usersPage.ListView.ItemSelected += async (sender, e) =>
 			{
-				UserListViewModel selectedViewModel = (UserListViewModel)e.Group;
+				UserListViewModel selectedViewModel = (UserListViewModel)e.SelectedItem;
 				bool answer = await DisplayAlert("", "Start a conversations with " + selectedViewModel.Name, "Yes", "No");
 				if (answer)
 				{
 					this.StartConversation(selectedViewModel.UserId);
+
 				}
-                ((ListView)sender).SelectedItem = null;
+				//((ListView)sender).SelectedItem = null;
 			};
 
             convoPage = new ConversationPage();
@@ -39,9 +40,11 @@ namespace HiddenMessage.pages.UserTabs
 
 		private async void StartConversation(int userToStartWith)
 		{
-			string route = $"/conversations/user/{settings.UserId}/other_user/{userToStartWith}";
+            System.Diagnostics.Debug.WriteLine("out 1: " + userToStartWith);
+            string route = $"/conversations/user/{settings.UserId}/other_user/{userToStartWith}";
 			await HttpRequest.MakePostRequest(ServerVariables.URL + route, "", null);
-            convoPage.UpdateConversations();
+			convoPage.UpdateConversations();
+
 		}
     }
 }
