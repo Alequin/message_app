@@ -26,6 +26,12 @@ namespace HiddenMessage.pages.UserTabs
             ObservableCollection<UserListViewModel> users = new ObservableCollection<UserListViewModel>();
             lv.ItemsSource = users;
 
+			lv.ItemTapped += async (sender, e) =>
+			{
+                UserListViewModel selectedViewModel = (UserListViewModel)e.Group;
+                bool answer = await DisplayAlert("", "Start a conversations with " + selectedViewModel.Name, "Yes", "No");
+			};
+
             HttpRequest.MakeGetRequest(ServerVariables.URL + "/users", (content) => {
                 JObject[] usersAsJson = JsonHelper.DeserialiseArray(content);
 
