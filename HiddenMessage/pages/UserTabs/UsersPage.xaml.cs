@@ -23,27 +23,39 @@ namespace HiddenMessage.pages.UserTabs
             get { return listView; }
         }
 
+        private ObservableCollection<UserListViewModel> users;
+
         public UsersPage()
         {
             InitializeComponent();
 
             listView = (ListView)list;
-            ObservableCollection<UserListViewModel> users = new ObservableCollection<UserListViewModel>();
+            users = new ObservableCollection<UserListViewModel>();
             listView.ItemsSource = users;
+            this.UpdateUserList();
+        }
 
-            HttpRequest.MakeGetRequest(ServerVariables.URL + "/users", (content) => {
-                JObject[] usersAsJson = JsonHelper.DeserialiseArray(content);
+        private void UpdateUserList()
+        {
+			HttpRequest.MakeGetRequest(ServerVariables.URL + "/users", (content) => {
+				JObject[] usersAsJson = JsonHelper.DeserialiseArray(content);
+                users.Clear();
 
-                foreach (JObject jsonUser in usersAsJson)
-                {
-                    if((int)jsonUser["id"] != settings.UserId)
-                    {
+				foreach (JObject jsonUser in usersAsJson)
+				{
+					if ((int)jsonUser["id"] != settings.UserId)
+					{
 						User user = new User(jsonUser);
-						users.Add(new UserListViewModel(user)); 
-                    }
-                }
-                return null;
-            });
+						users.Add(new UserListViewModel(user));
+					}
+				}
+				return null;
+			});
+        }
+
+        public void OnClickUpdate(Object sender, EventArgs e)
+        {
+            this.UpdateUserList();
         }
     }
 }

@@ -19,6 +19,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <Button x:Name="updateButton" Text="Update" Clicked="OnClickUpdate"></Button>
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
