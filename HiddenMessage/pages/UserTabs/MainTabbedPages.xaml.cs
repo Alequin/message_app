@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using HiddenMessage.Service;
 using HiddenMessage.Service.ServerRequests;
 using HiddenMessage.ViewModels;
@@ -20,16 +19,16 @@ namespace HiddenMessage.pages.UserTabs
             UsersPage usersPage = new UsersPage();
             this.Children.Add(usersPage);
 
-			usersPage.ListView.ItemSelected += async (sender, e) =>
+			usersPage.ListView.ItemTapped += async (sender, e) =>
 			{
-				UserListViewModel selectedViewModel = (UserListViewModel)e.SelectedItem;
+                UserListViewModel selectedViewModel = (UserListViewModel)e.Item;
 				bool answer = await DisplayAlert("", "Start a conversations with " + selectedViewModel.Name, "Yes", "No");
 				if (answer)
 				{
 					this.StartConversation(selectedViewModel.UserId);
 
 				}
-				//((ListView)sender).SelectedItem = null;
+				((ListView)sender).SelectedItem = null;
 			};
 
             convoPage = new ConversationPage();
