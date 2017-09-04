@@ -28,6 +28,7 @@ namespace HiddenMessage.pages.UserTabs
 				{
 					this.StartConversation(selectedViewModel.UserId);
 				}
+                ((ListView)sender).SelectedItem = null;
 			};
 
             convoPage = new ConversationPage();
