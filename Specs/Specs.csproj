@@ -40,6 +40,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestJson.cs" />
     <Compile Include="TestUser.cs" />
+    <Compile Include="TestConversationListViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HiddenMessage\HiddenMessage.csproj">
