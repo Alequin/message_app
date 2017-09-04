@@ -4,8 +4,8 @@
     xmlns:local="clr-namespace:HiddenMessage.pages.UserTabs"
     x:Class="HiddenMessage.pages.UserTabs.MainTabbedPages">
 
-    <local:UsersPage></local:UsersPage>
+    <!--<local:UsersPage></local:UsersPage>
     <local:ConversationPage></local:ConversationPage>
-    <local:SettingsPage></local:SettingsPage>
+    <local:SettingsPage></local:SettingsPage>-->
     
 </TabbedPage>

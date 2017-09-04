@@ -12,28 +12,35 @@ namespace HiddenMessage.pages.UserTabs
     public partial class ConversationPage : ContentPage
     {
 
-        UserSettings settings = new UserSettings();
+        private UserSettings settings = new UserSettings();
+        private ObservableCollection<ConversationListViewModel> convos;
 
         public ConversationPage()
         {
             InitializeComponent();
 
 			ListView listView = (ListView)list;
-			ObservableCollection<ConversationListViewModel> convos = new ObservableCollection<ConversationListViewModel>();
+			convos = new ObservableCollection<ConversationListViewModel>();
 			listView.ItemsSource = convos;
 
+			this.UpdateConversations();
+		}
+
+        public void UpdateConversations()
+        {
 			String route = "/conversations/participants/user/" + settings.UserId.ToString();
 			HttpRequest.MakeGetRequest(ServerVariables.URL + route, (content) => {
 				JObject[] convosAsJson = JsonHelper.DeserialiseArray(content);
 
-                foreach (JObject token in convosAsJson)
-                {
-                    convos.Add(new ConversationListViewModel((int)token["conversationId"], "last message", ChangeJTokenArrayToStringArray(token["usersCollection"])));
-                }
+                convos.Clear();
+				foreach (JObject token in convosAsJson)
+				{
+					convos.Add(new ConversationListViewModel((int)token["conversationId"], "last message", ChangeJTokenArrayToStringArray(token["usersCollection"])));
+				}
 
 				return null;
 			});
-		}
+        }
 
         private List<String> ChangeJTokenArrayToStringArray(JToken jsonArray)
         {

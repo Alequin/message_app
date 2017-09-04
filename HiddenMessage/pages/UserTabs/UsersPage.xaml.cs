@@ -16,24 +16,20 @@ namespace HiddenMessage.pages.UserTabs
     public partial class UsersPage : ContentPage
     {
 
-        UserSettings settings = new UserSettings();
+        private UserSettings settings = new UserSettings();
+        private ListView listView;
+        public ListView ListView
+        {
+            get { return listView; }
+        }
 
         public UsersPage()
         {
             InitializeComponent();
 
-            ListView lv = (ListView)list;
+            listView = (ListView)list;
             ObservableCollection<UserListViewModel> users = new ObservableCollection<UserListViewModel>();
-            lv.ItemsSource = users;
-
-			lv.ItemTapped += async (sender, e) =>
-			{
-                UserListViewModel selectedViewModel = (UserListViewModel)e.Group;
-                bool answer = await DisplayAlert("", "Start a conversations with " + selectedViewModel.Name, "Yes", "No");
-                if(answer){
-                    this.StartConversation(selectedViewModel.UserId);
-                }
-			};
+            listView.ItemsSource = users;
 
             HttpRequest.MakeGetRequest(ServerVariables.URL + "/users", (content) => {
                 JObject[] usersAsJson = JsonHelper.DeserialiseArray(content);
@@ -48,12 +44,6 @@ namespace HiddenMessage.pages.UserTabs
                 }
                 return null;
             });
-        }
-
-        private void StartConversation(int userToStartWith)
-        {
-            string route = $"/conversations/user/{settings.UserId}/other_user/{userToStartWith}";
-            HttpRequest.MakePostRequest(ServerVariables.URL + route, "", null); 
         }
     }
 }
