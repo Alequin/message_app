@@ -26,6 +26,7 @@ namespace HiddenMessage.pages.UserTabs
             {
                 ConversationListViewModel selected = (ConversationListViewModel)e.Item;
                 Navigation.PushAsync(new MessagePage(selected.ConversationId));
+                ((ListView)sender).SelectedItem = null;
             };
 
 			this.UpdateConversations();
