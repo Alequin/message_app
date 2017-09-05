@@ -22,6 +22,11 @@ namespace HiddenMessage.Models
             this.sentTimestamp = sentTimestamp;
         }
 
+        public String MessageBody
+        {
+            get { return messageBody; }
+        }
+
 		public async void Save(Func<String, String> onComplete)
 		{
 			await HttpRequest.MakePostRequest(ServerVariables.URL + "/messages", this.ToJsonString(), onComplete);

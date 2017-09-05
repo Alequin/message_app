@@ -62,6 +62,7 @@ namespace HiddenMessage.pages
         {
             string messageBody = messageEntry.Text;
             Message message = new Message(messageBody, settings.UserId, this.conversationId, "");
+            messages.Add(new MessageViewModel(message.MessageBody, settings.UserName, "Just now"));
             message.Save(null);
             messageEntry.Text = "";
         }
