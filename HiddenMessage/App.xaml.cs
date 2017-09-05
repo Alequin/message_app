@@ -17,7 +17,7 @@ namespace HiddenMessage
             {
                 MainPage = new NewUserPage();
             }else{
-                MainPage = new MainTabbedPages();
+                MainPage = new NavigationPage(new MainTabbedPages());
             }
         }
 
