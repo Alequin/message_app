@@ -22,6 +22,11 @@ namespace HiddenMessage.pages.UserTabs
 			ListView listView = (ListView)list;
 			convos = new ObservableCollection<ConversationListViewModel>();
 			listView.ItemsSource = convos;
+            listView.ItemTapped += (sender, e) =>
+            {
+                ConversationListViewModel selected = (ConversationListViewModel)e.Item;
+                Navigation.PushAsync(new MessagePage(selected.ConversationId));
+            };
 
 			this.UpdateConversations();
 		}
