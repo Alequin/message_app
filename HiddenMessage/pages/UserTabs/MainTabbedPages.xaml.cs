@@ -39,11 +39,9 @@ namespace HiddenMessage.pages.UserTabs
 
 		private async void StartConversation(int userToStartWith)
 		{
-            System.Diagnostics.Debug.WriteLine("out 1: " + userToStartWith);
             string route = $"/conversations/user/{settings.UserId}/other_user/{userToStartWith}";
 			await HttpRequest.MakePostRequest(ServerVariables.URL + route, "", null);
 			convoPage.UpdateConversations();
-
 		}
     }
 }
