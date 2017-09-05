@@ -44,6 +44,9 @@
     <EmbeddedResource Include="pages\NewUserPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="pages\MessagePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -74,6 +77,10 @@
     <Compile Include="Notifications\IToken.cs" />
     <Compile Include="Service\UserSettings.cs" />
     <Compile Include="ViewModels\ConversationListViewModel.cs" />
+    <Compile Include="pages\MessagePage.xaml.cs">
+      <DependentUpon>MessagePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MessageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
