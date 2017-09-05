@@ -23,6 +23,7 @@ namespace HiddenMessage.pages
             this.conversationId = conversationId;
 
             ObservableCollection<MessageViewModel> messages = new ObservableCollection<MessageViewModel>();
+            list.ItemsSource = messages;
 
             string route = "/messages/conversation/" + conversationId;
 
@@ -31,7 +32,7 @@ namespace HiddenMessage.pages
 
                 foreach(JObject jsonMessage in messagesAsJson)
                 {
-                    System.Diagnostics.Debug.WriteLine("Out:" + jsonMessage);  
+                    messages.Add(new MessageViewModel(jsonMessage)); 
                 }
                 return null;
             }); 

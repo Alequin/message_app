@@ -1,4 +1,6 @@
 ﻿using System;
+using Newtonsoft.Json.Linq;
+
 namespace HiddenMessage.ViewModels
 {
     public class MessageViewModel
@@ -12,6 +14,9 @@ namespace HiddenMessage.ViewModels
             this.messageDetails += sendingUser + ": " + timeStamp;
             this.message = message;
         }
+
+		public MessageViewModel(JObject message)
+            :this (message["messageBody"].ToString(), message["userName"].ToString(), message["sentTimestamp"].ToString()){}
 
         public String MessageDetails
         {
