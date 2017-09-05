@@ -17,7 +17,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Entry></Entry>
+        <Entry x:Name="messageEntry"></Entry>
         <Button Text="Send" Clicked="OnClickSendButton"></Button>
         </StackLayout>
 	</ContentPage.Content>

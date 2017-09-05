@@ -39,9 +39,11 @@ namespace HiddenMessage.pages
 
         void OnClickSendButton(object sender, System.EventArgs e)
         {
-            string messageBody = ((Entry)sender).Text;
-            Message message = new Message(messageBody, settings.UserId, this.conversationId, null);
+            string messageBody = messageEntry.Text;
+            string time = DateTime.Now.ToString("yyyy-MM-dd h:mm:ss");
+            Message message = new Message(messageBody, settings.UserId, this.conversationId, time);
             message.Save(null);
+            messageEntry.Text = "";
         }
     }
 }

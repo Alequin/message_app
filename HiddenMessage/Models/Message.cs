@@ -33,7 +33,8 @@ namespace HiddenMessage.Models
             {
                 { "messageBody", this.messageBody },
                 { "userId", this.userId },
-                { "conversationId", this.conversationId }
+                { "conversationId", this.conversationId },
+                { "sentTimeStamp", this.sentTimeStamp}
             };
             Dictionary<string, Dictionary<string, object>> jsonContainerHash = new Dictionary<string, Dictionary<string, object>>
             {
