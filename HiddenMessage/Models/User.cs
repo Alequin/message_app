@@ -72,10 +72,10 @@ namespace HiddenMessage.Models
 
         public async void Save(Func<String, String> onComplete)
         {
-			await HttpRequest.MakePostRequest(ServerVariables.URL + "/users", this.GetJson(), onComplete);
+			await HttpRequest.MakePostRequest(ServerVariables.URL + "/users", this.ToJsonString(), onComplete);
 		}
 
-        private String GetJson()
+        private String ToJsonString()
         {
             Dictionary<string, Object> jsonHash = new Dictionary<string, Object>();
 			jsonHash.Add("name", this.Name);

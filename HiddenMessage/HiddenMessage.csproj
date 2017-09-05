@@ -81,6 +81,7 @@
       <DependentUpon>MessagePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MessageViewModel.cs" />
+    <Compile Include="Models\Message.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
