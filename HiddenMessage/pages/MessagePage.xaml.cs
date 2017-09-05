@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 using HiddenMessage.Models;
 using HiddenMessage.Service;
@@ -16,6 +17,8 @@ namespace HiddenMessage.pages
 
         private Task updateTask;
         private bool runUpdate;
+        private CancellationTokenSource taskCanceler;
+
         private int conversationId;
         private UserSettings settings = new UserSettings();
 
@@ -32,15 +35,6 @@ namespace HiddenMessage.pages
 
 			this.UpdateMessages();
 
-            runUpdate = true;
-			updateTask = new Task(async () => {
-				while (runUpdate)
-				{
-					this.UpdateMessages();
-					await Task.Delay(10000);
-				}
-			});
-            updateTask.Start();
         }
 
         private void UpdateMessages()
@@ -58,6 +52,25 @@ namespace HiddenMessage.pages
 			});
         }
 
+        private void StartUpdateMessageLoop()
+        {
+            taskCanceler = new CancellationTokenSource();
+            CancellationToken ct = taskCanceler.Token;
+			updateTask = new Task(async () => {
+                bool run = true;
+				while (run)
+				{
+					await Task.Delay(10000);
+					this.UpdateMessages();
+					if (ct.IsCancellationRequested)
+					{
+                        run = false;
+					}
+				}
+			}, taskCanceler.Token);
+            updateTask.Start();
+        }
+
         void OnClickSendButton(object sender, System.EventArgs e)
         {
             string messageBody = messageEntry.Text;
@@ -67,10 +80,18 @@ namespace HiddenMessage.pages
             messageEntry.Text = "";
         }
 
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+            this.StartUpdateMessageLoop();
+		}
+
 		protected override void OnDisappearing()
 		{
 			base.OnDisappearing();
-            runUpdate = false;
+            taskCanceler.Cancel();
+            updateTask = null;
+			taskCanceler.Dispose();
 		}
     }
 }
