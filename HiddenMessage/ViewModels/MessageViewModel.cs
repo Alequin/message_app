@@ -1,13 +1,13 @@
 ﻿using System;
 namespace HiddenMessage.ViewModels
 {
-    public class MessgeViewModel
+    public class MessageViewModel
     {
 
         private String messageDetails;
         private String message;
 
-        public MessgeViewModel(string message, string sendingUser, string timeStamp)
+        public MessageViewModel(string message, string sendingUser, string timeStamp)
         {
             this.messageDetails += sendingUser + ": " + timeStamp;
             this.message = message;
