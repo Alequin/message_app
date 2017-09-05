@@ -18,6 +18,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Entry></Entry>
+        <Button Text="Send" Clicked="OnClickSendButton"></Button>
         </StackLayout>
 	</ContentPage.Content>
 </ContentPage>
