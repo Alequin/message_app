@@ -38,6 +38,7 @@ namespace HiddenMessage.pages
         }
 
         private void HandleOnClickGoButton(){
+
 			String enteredText = userNameEntry.Text;
 
 			if (enteredText == null || enteredText.Length <= 0)
@@ -51,6 +52,7 @@ namespace HiddenMessage.pages
 			User newUser = new User(enteredText, 1, Device.RuntimePlatform, token.GetToken(), "Online", true);
 
 			newUser.Save((result) => {
+
 				JObject userJObject = JsonHelper.DeserialiseObject(result);
 				User resultantUser = new User(userJObject);
 

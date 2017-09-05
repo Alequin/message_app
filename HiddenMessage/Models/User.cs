@@ -88,7 +88,7 @@ namespace HiddenMessage.Models
             Dictionary<string, Dictionary<string, object>> jsonContainerHash = new Dictionary<string, Dictionary<string, object>>();
             jsonContainerHash.Add("user", jsonHash);
 
-            return JsonConvert.SerializeObject(jsonContainerHash);
+			return JsonConvert.SerializeObject(jsonContainerHash);
         }
     }
 }
