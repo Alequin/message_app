@@ -12,14 +12,14 @@ namespace HiddenMessage.Models
         private String messageBody;
         private int userId;
         private int conversationId;
-        private String sentTimeStamp;
+        private String sentTimestamp;
 
-        public Message(string messageBody, int userId, int conversationId, string sentTimeStamp)
+        public Message(string messageBody, int userId, int conversationId, string sentTimestamp)
         {
             this.messageBody = messageBody;
             this.userId = userId;
             this.conversationId = conversationId;
-            this.sentTimeStamp = sentTimeStamp;
+            this.sentTimestamp = sentTimestamp;
         }
 
 		public async void Save(Func<String, String> onComplete)
@@ -34,7 +34,7 @@ namespace HiddenMessage.Models
                 { "messageBody", this.messageBody },
                 { "userId", this.userId },
                 { "conversationId", this.conversationId },
-                { "sentTimeStamp", this.sentTimeStamp}
+                { "sentTimestamp", this.sentTimestamp}
             };
             Dictionary<string, Dictionary<string, object>> jsonContainerHash = new Dictionary<string, Dictionary<string, object>>
             {
