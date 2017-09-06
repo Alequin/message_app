@@ -15,10 +15,10 @@ namespace HiddenMessage.Droid.FirebaseMessaging
 		public override void OnMessageReceived(RemoteMessage message)
 		{
 			base.OnMessageReceived(message);
-			SendNotification(message.GetNotification().Body);
+			SendNotification(message.GetNotification().Title, message.GetNotification().Body);
 		}
 
-		private void SendNotification(string body)
+		private void SendNotification(string title, string body)
 		{
 			var intent = new Intent(this, typeof(MainActivity));
 			intent.AddFlags(ActivityFlags.ClearTop);
@@ -27,7 +27,7 @@ namespace HiddenMessage.Droid.FirebaseMessaging
 			var defaultSoundUri = RingtoneManager.GetDefaultUri(RingtoneType.Notification);
 			var notificationBuilder = new NotificationCompat.Builder(this)
                 .SetSmallIcon(Resource.Drawable.icon)
-				.SetContentTitle("EDMTDev")
+				.SetContentTitle(title)
 				.SetContentText(body)
 				.SetAutoCancel(true)
 				.SetSound(defaultSoundUri)
