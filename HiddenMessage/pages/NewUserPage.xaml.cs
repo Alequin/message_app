@@ -49,7 +49,7 @@ namespace HiddenMessage.pages
 			}
 
 			IToken token = DependencyService.Get<IToken>();
-			User newUser = new User(enteredText, 1, Device.RuntimePlatform, token.GetToken(), "Online", true);
+			User newUser = new User(enteredText, 1, Device.RuntimePlatform, token.GetToken(), "online", true);
 
 			newUser.Save((result) => {
 
