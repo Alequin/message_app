@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using HiddenMessage.pages.UserTabs;
+using HiddenMessage.Service.ServerRequests;
 using HiddenMessage.ViewModels;
 using Xamarin.Forms;
 
@@ -33,7 +34,8 @@ namespace HiddenMessage.pages
                 bool answer = await DisplayAlert("", $"Invite {selectedViewModel.Name} to the conversation?", "Yes", "No");
 				if (answer)
 				{
-				    	
+                    string route = $"/participants/user/{selectedViewModel.UserId}/conversation/{this.conversationId}";
+                    HttpRequest.MakePostRequest(ServerVariables.URL + route, "", null);	
 				}
 				((ListView)listView).SelectedItem = null;
 			};
