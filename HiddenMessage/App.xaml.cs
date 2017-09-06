@@ -24,17 +24,18 @@ namespace HiddenMessage
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+            System.Diagnostics.Debug.WriteLine("xoxostart");
         }
 
         protected override void OnSleep()
         {
-            // Handle when your app sleeps
-        }
+			System.Diagnostics.Debug.WriteLine("xoxosleep");
+		}
 
         protected override void OnResume()
         {
-            // Handle when your app resumes
-        }
+			System.Diagnostics.Debug.WriteLine("xoxoresume");
+
+		}
     }
 }

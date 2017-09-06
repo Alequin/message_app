@@ -13,7 +13,6 @@ namespace HiddenMessage.Droid.FirebaseMessaging
 		public override void OnTokenRefresh()
 		{
 			var refreshedToken = FirebaseInstanceId.Instance.Token;
-			Log.Debug(TAG, "Refreshed token: " + refreshedToken);
 			SendRegistrationToServer(refreshedToken);
 		}
 
