@@ -25,7 +25,7 @@ namespace HiddenMessage.pages.UserTabs
             listView.ItemTapped += (sender, e) =>
             {
                 ConversationListViewModel selected = (ConversationListViewModel)e.Item;
-                Navigation.PushAsync(new MessagePage(selected.ConversationId));
+                Navigation.PushAsync(new MasterMessagePage(selected.ConversationId));
                 ((ListView)sender).SelectedItem = null;
             };
 

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MasterDetailPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="HiddenMessage.pages.MasterMessagePage"
+    Title="Messages">
+
+    <MasterDetailPage.Master Title="x">
+        <ContentPage  Title="Master">
+            <ContentPage.Content>
+                <StackLayout>
+                    <Label Text="i am here"></Label>
+                </StackLayout>
+            </ContentPage.Content>
+        </ContentPage>  
+    </MasterDetailPage.Master>
+        
+</MasterDetailPage>
