@@ -9,7 +9,9 @@
         <ContentPage  Title="Master">
             <ContentPage.Content>
                 <StackLayout>
-                    <Label Text="i am here"></Label>
+                    <Label Text="Messages Menu" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"></Label>
+                    <Button Text="View Messages" Clicked="OnClickToMessagesButton"></Button>                  
+                    <Button Text="Invite Others" Clicked="OnClickToInviteButton"></Button>
                 </StackLayout>
             </ContentPage.Content>
         </ContentPage>  
