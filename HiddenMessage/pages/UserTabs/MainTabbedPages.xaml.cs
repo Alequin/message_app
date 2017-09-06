@@ -9,7 +9,7 @@ namespace HiddenMessage.pages.UserTabs
     public partial class MainTabbedPages : TabbedPage
     {
 
-        private UserSettings settings = new UserSettings();
+        private UserSettings settings = UserSettings.SettingsInstance;
         private ConversationPage convoPage;
 
         public MainTabbedPages()

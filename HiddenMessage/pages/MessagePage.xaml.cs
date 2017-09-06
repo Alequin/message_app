@@ -20,7 +20,7 @@ namespace HiddenMessage.pages
         private CancellationTokenSource taskCanceler;
 
         private int conversationId;
-        private UserSettings settings = new UserSettings();
+        private UserSettings settings = UserSettings.SettingsInstance;
 
         ObservableCollection<MessageViewModel> messages;
 

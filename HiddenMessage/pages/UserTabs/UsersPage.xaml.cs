@@ -16,7 +16,7 @@ namespace HiddenMessage.pages.UserTabs
     public partial class UsersPage : ContentPage
     {
 
-        private UserSettings settings = new UserSettings();
+        private UserSettings settings = UserSettings.SettingsInstance;
         private ListView listView;
         public ListView ListView
         {

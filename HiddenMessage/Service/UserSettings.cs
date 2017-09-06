@@ -7,13 +7,19 @@ namespace HiddenMessage.Service
     public class UserSettings
     {
 
+        private static UserSettings settingsInstance = new UserSettings();
+        public static UserSettings SettingsInstance
+        {
+            get { return settingsInstance; }
+        }
+
         private int userId;
         private readonly string ID_KEY = "key";
 
         private String userName;
         private readonly string NAME_KEY = "user_name";
 
-        public UserSettings()
+        private UserSettings()
         {
             this.Load();
         }

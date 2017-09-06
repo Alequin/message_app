@@ -12,7 +12,7 @@ namespace HiddenMessage.pages.UserTabs
     public partial class ConversationPage : ContentPage
     {
 
-        private UserSettings settings = new UserSettings();
+        private UserSettings settings = UserSettings.SettingsInstance;
         private ObservableCollection<ConversationListViewModel> convos;
 
         public ConversationPage()

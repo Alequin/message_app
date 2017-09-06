@@ -58,7 +58,7 @@ namespace HiddenMessage.pages
 
 				if (resultantUser.Id > 0)
 				{
-                    new UserSettings().SaveNewUser(resultantUser);
+                    UserSettings.SettingsInstance.SaveNewUser(resultantUser);
                     Navigation.PushModalAsync(new NavigationPage(new MainTabbedPages()));
 				}
 				else

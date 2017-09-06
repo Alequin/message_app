@@ -19,7 +19,7 @@ namespace HiddenMessage
         {
             InitializeComponent();
 
-            settings = new UserSettings();
+            settings = UserSettings.SettingsInstance;
             if(!settings.IsUserSaved())
             {
                 MainPage = new NewUserPage();
