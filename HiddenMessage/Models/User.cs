@@ -77,14 +77,15 @@ namespace HiddenMessage.Models
 
         private String ToJsonString()
         {
-            Dictionary<string, Object> jsonHash = new Dictionary<string, Object>();
-			jsonHash.Add("name", this.Name);
-			jsonHash.Add("avatar", this.Avatar);
-			jsonHash.Add("deviceSystem", this.DeviceSystem);
-			jsonHash.Add("deviceToken", this.DeviceToken);
-			jsonHash.Add("onlineStatus", this.OnlineStatus);
-			jsonHash.Add("isVisible", this.IsVisible);
-
+            Dictionary<string, Object> jsonHash = new Dictionary<string, Object>
+            {
+                { "name", this.Name },
+                { "avatar", this.Avatar },
+                { "deviceSystem", this.DeviceSystem },
+                { "deviceToken", this.DeviceToken },
+                { "onlineStatus", this.OnlineStatus },
+                { "isVisible", this.IsVisible }
+            };
             Dictionary<string, Dictionary<string, object>> jsonContainerHash = new Dictionary<string, Dictionary<string, object>>();
             jsonContainerHash.Add("user", jsonHash);
 
