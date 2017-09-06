@@ -48,6 +48,11 @@ namespace HiddenMessage.pages.UserTabs
 			});
         }
 
+        void OnClickUpdate(object sender, System.EventArgs e)
+        {
+            this.UpdateConversations();
+        }
+
         private List<String> ChangeJTokenArrayToStringArray(JToken jsonArray)
         {
             List<String> usersList = new List<string>();

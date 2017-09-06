@@ -5,15 +5,18 @@
     x:Class="HiddenMessage.pages.UserTabs.ConversationPage"
     Title="Messages" Icon="convo_bubbles.png">
 	<ContentPage.Content>
-        <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell 
-                        Text="{Binding UsersText}" 
-                        Detail="{Binding LastMessage}">
-                    </TextCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout>
+            <ListView x:Name="list" HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell 
+                            Text="{Binding UsersText}" 
+                            Detail="{Binding LastMessage}">
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Update" Clicked="OnClickUpdate"></Button>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
