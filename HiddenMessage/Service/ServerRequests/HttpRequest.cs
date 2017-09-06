@@ -49,6 +49,18 @@ namespace HiddenMessage.Service.ServerRequests
 			client.Dispose();
 		}
 
+		public async static Task MakeDeleteRequest(String url, Func<String, String> onResult)
+		{
+			HttpClient client = HttpRequest.BuildClient();
+
+			HttpResponseMessage response = await client.DeleteAsync(url);
+
+			HttpRequest.HandleResponseContent(response, onResult);
+
+			response.Dispose();
+			client.Dispose();
+		}
+
         private static HttpClient BuildClient()
         {
 			HttpClient client = new HttpClient();

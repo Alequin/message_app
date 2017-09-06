@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using HiddenMessage.pages.UserTabs;
+using HiddenMessage.Service;
 using HiddenMessage.Service.ServerRequests;
 using HiddenMessage.ViewModels;
 using Xamarin.Forms;
@@ -39,6 +40,23 @@ namespace HiddenMessage.pages
 				}
 				((ListView)listView).SelectedItem = null;
 			};
+        }
+
+		void OnClickLeaveButton(object sender, System.EventArgs e)
+		{
+			this.HandleOnLeaveConversation();
+		}
+
+        private async void HandleOnLeaveConversation()
+        {
+			bool answer = await DisplayAlert("", "Are you sure you wish to leave?", "Yes", "No");
+			if (answer)
+			{
+                UserSettings settings = UserSettings.SettingsInstance;
+				string route = $"/participants/user/{settings.UserId}/conversation/{this.conversationId}";
+				HttpRequest.MakeDeleteRequest(ServerVariables.URL + route, null);
+			}
+            Navigation.PushAsync(new NavigationPage(new MainTabbedPages()));
         }
     }
 }
