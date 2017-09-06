@@ -36,6 +36,19 @@ namespace HiddenMessage.Service.ServerRequests
 			client.Dispose();
 		}
 
+		public async static Task MakePutRequest(String url, String jsonString, Func<String, String> onResult)
+		{
+			HttpClient client = HttpRequest.BuildClient();
+
+			StringContent toPut = new StringContent(jsonString, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PutAsync(url, toPut);
+
+			HttpRequest.HandleResponseContent(response, onResult);
+
+			response.Dispose();
+			client.Dispose();
+		}
+
         private static HttpClient BuildClient()
         {
 			HttpClient client = new HttpClient();
