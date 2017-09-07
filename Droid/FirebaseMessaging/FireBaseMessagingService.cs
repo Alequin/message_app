@@ -1,4 +1,8 @@
-﻿//https://github.com/eddydn/XamarinFirebaseMessaging/blob/master/MyFirebaseMessagingService.cs
+﻿
+/*
+ * Code produced by following the tutorial at https://www.youtube.com/watch?v=ERyvuOfM60g&t=726s
+ * Repo holding tutoral code https://github.com/eddydn/XamarinFirebaseMessaging/blob/master/MyFirebaseMessagingService.cs
+*/
 
 using Android.App;
 using Android.Content;
