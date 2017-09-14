@@ -1,4 +1,8 @@
-﻿using System;
+﻿/*
+ * Code produced by following the tutorial at https://developer.xamarin.com/guides/android/application_fundamentals/notifications/remote-notifications-with-fcm/
+*/
+
+using System;
 
 using Android.App;
 using Android.Content;
